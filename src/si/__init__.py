@@ -1,5 +1,5 @@
 __author__ = "João Correia"
-__credits__ = ["João Correia, Fernando Cruz", "Vítor Pereira"]
+__credits__ = ["João Correia, Fernando Cruz", "Vítor Pereira", "Karyna Lysenko"]
 __license__ = "Apache License 2.0"
 __version__ = "0.0.1"
 __maintainer__ = "João Correia"
