@@ -197,6 +197,40 @@ class Dataset:
         X = np.random.rand(n_samples, n_features)
         y = np.random.randint(0, n_classes, n_samples)
         return cls(X, y, features=features, label=label)
+    
+#exercise 2
+#2.1
+    def dropna(self):
+        non_nan_indices = ~np.isnan(self.X).any(axis=1)
+        self.X = self.X[non_nan_indices]
+        if self.y is not None:
+            self.y = self.y[non_nan_indices]
+        return self
+#2.2
+    def fillna(self, value: float or str):
+        fill_value = None
+        try:
+            if value == 'mean':
+                fill_value = np.nanmean(self.X, axis=0)
+            elif value == 'median':
+                value=self.get_median()
+                fill_value = np.nanmedian(self.X, axis=0)
+            elif isinstance(value,float):
+                fill_value = value
+            self.X = np.nan_to_num(self.X, nan=fill_value)
+            return self
+        except:            
+            raise ValueError("Must be a 'float' or mean or median")
+                        
+
+        
+#2.3
+    def remove_by_index(self, index:int):
+        if index in range(0, len(self.X)):
+            self.X = np.delete(self.X, index, axis=0)
+        if self.y is not None:
+            self.y = np.delete(self.y, index, axis=0)
+        return self
 
 
 if __name__ == '__main__':
