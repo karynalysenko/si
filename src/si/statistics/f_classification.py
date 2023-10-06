@@ -2,8 +2,14 @@ from typing import Tuple, Union
 
 import numpy as np
 from scipy import stats
+import os
+import sys
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PARENT_DIR = os.path.dirname(SCRIPT_DIR)
+sys.path.append(PARENT_DIR)
+from data.dataset import Dataset
 
-from si.data.dataset import Dataset
+
 
 
 def f_classification(dataset: Dataset) -> Union[Tuple[np.ndarray, np.ndarray],

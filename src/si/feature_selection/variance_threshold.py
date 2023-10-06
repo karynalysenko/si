@@ -1,6 +1,11 @@
 import numpy as np
+import os
+import sys
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PARENT_DIR = os.path.dirname(SCRIPT_DIR)
+sys.path.append(PARENT_DIR)
 
-from si.data.dataset import Dataset
+from data.dataset import Dataset
 
 
 class VarianceThreshold:
@@ -89,7 +94,7 @@ class VarianceThreshold:
 
 
 if __name__ == '__main__':
-    from si.data.dataset import Dataset
+    from data.dataset import Dataset
 
     dataset = Dataset(X=np.array([[0, 2, 0, 3],
                                   [0, 1, 4, 3],

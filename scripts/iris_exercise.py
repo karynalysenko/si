@@ -9,7 +9,7 @@ sys.path.append(PARENT_DIR)
 from src.io.csv_file import read_csv
 
 filename= f'{PARENT_DIR}/datasets/iris/iris.csv'
-filename= f'{PARENT_DIR}/datasets/iris/iris_missing_data.csv'
+# filename= f'{PARENT_DIR}/datasets/iris/iris_missing_data.csv'
 
 #exercise 1
 #1.1
@@ -48,3 +48,13 @@ a=iris_dataset.dropna()
 y=iris_dataset.remove_by_index(1)
 # print(y.X)
 
+#3.1
+from src.si.feature_selection.select_percentile import SelectPercentile
+#3.2 testes
+dataset = read_csv(filename, features = True, label= True)
+selector = SelectPercentile(percentile=50)
+selector = selector.fit(dataset)
+print(selector.p)
+
+dataset = selector.transform(dataset)
+print(dataset.features)
