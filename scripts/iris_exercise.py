@@ -54,7 +54,20 @@ from src.si.feature_selection.select_percentile import SelectPercentile
 dataset = read_csv(filename, features = True, label= True)
 selector = SelectPercentile(percentile=50)
 selector = selector.fit(dataset)
-print(selector.p)
+# print(selector.p)
 
 dataset = selector.transform(dataset)
-print(dataset.features)
+# print(dataset.features)
+
+
+#5.2
+from src.si.decomposition.pca import PCA
+filename= f'{PARENT_DIR}/datasets/iris/iris.csv'
+iris_dataset = read_csv(filename, features = True, label= True)
+
+selector = PCA(n_components=2)
+# selector = selector.fit(iris_dataset)
+# print("PCA components:\n", selector.components)
+# print("Explained variance:\n", selector.explained_variance)
+selector = selector.fit_transform(iris_dataset)
+# print(selector)
