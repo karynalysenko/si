@@ -71,3 +71,13 @@ selector = PCA(n_components=2)
 # print("Explained variance:\n", selector.explained_variance)
 selector = selector.fit_transform(iris_dataset)
 # print(selector)
+
+#6.2
+
+from src.si.model_selection.split import stratified_train_test_split
+
+filename= f'{PARENT_DIR}/datasets/iris/iris.csv'
+iris_dataset = read_csv(filename, features = True, label= True)
+print(stratified_train_test_split(iris_dataset)[0].shape())
+print(stratified_train_test_split(iris_dataset)[1].shape())
+print(stratified_train_test_split(iris_dataset))
