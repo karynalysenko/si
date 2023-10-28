@@ -177,7 +177,6 @@ if __name__ == '__main__':
     X = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])
     y = np.dot(X, np.array([1, 2])) + 3
     dataset_ = Dataset(X=X, y=y)
-
     # fit the model
     model = RidgeRegression()
     model.fit(dataset_)
@@ -196,3 +195,35 @@ if __name__ == '__main__':
     # predict
     y_pred_ = model.predict(Dataset(X=np.array([[3, 5]])))
     print(f"Predictions: {y_pred_}")
+
+    #aula 5
+    from src.io.csv_file import read_csv
+    from model_selection.split import train_test_split
+
+    filename= '/home/karyna/Documents/SIB/si/datasets/cpu/cpu.csv'
+    dataset_ = read_csv(filename, features = True, label= True)
+
+    dataset_train, dataset_test = train_test_split(dataset_, test_size=0.2)
+    
+    model = RidgeRegression()
+    model.fit(dataset_train)
+
+    # get coefs
+    print(f"Parameters: {model.theta}")
+
+    # compute the score
+    score = model.score(dataset_test)
+    print(f"Score: {score}")
+
+    # compute the cost
+    cost = model.cost(dataset_test)
+    print(f"Cost: {cost}")
+
+    # predict
+    y_pred_ = model.predict(dataset_test)
+    print(f"Predictions: {y_pred_}")
+
+    # import matplotlib.pyplot as plt
+
+    # plt.plot([min(dataset_test.y), max(dataset_test.y)], [min(dataset_test.y), max(dataset_test.y)], 'k--', lw=2, c='red', label='Actual')
+    # plt.show()

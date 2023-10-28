@@ -205,3 +205,29 @@ if __name__ == '__main__':
 
     plt.plot(list(model.cost_history.keys()), list(model.cost_history.values()))
     plt.show()
+
+    #aula 5 ########################################################
+    from src.io.csv_file import read_csv
+    from model_selection.split import train_test_split
+
+    filename= '/home/karyna/Documents/SIB/si/datasets/breast_bin/breast-bin.csv'
+    dataset_ = read_csv(filename, features = True, label= True)
+
+    # fit the model
+    model = LogisticRegression(l2_penalty=1, alpha=0.001, max_iter=1000)
+    model.fit(dataset_train)
+
+    print(model.theta)
+    print(model.theta_zero)
+
+    print(model.predict(dataset_test))
+
+    # compute the score
+    score = model.score(dataset_test)
+    print(f"Score: {score}")
+
+    # plot the cost history
+    # import matplotlib.pyplot as plt
+
+    # plt.plot(list(model.cost_history.keys()), list(model.cost_history.values()))
+    # plt.show()
