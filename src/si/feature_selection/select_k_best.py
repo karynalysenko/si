@@ -2,8 +2,8 @@ from typing import Callable
 
 import numpy as np
 
-from si.data.dataset import Dataset
-from si.statistics.f_classification import f_classification
+from data.dataset import Dataset
+from statistics.f_classification import f_classification
 
 
 class SelectKBest:
@@ -97,7 +97,7 @@ class SelectKBest:
 
 
 if __name__ == '__main__':
-    from si.data.dataset import Dataset
+    from data.dataset import Dataset
 
     dataset = Dataset(X=np.array([[0, 2, 0, 3],
                                   [0, 1, 4, 3],

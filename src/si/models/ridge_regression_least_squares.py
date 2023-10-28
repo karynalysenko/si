@@ -1,7 +1,7 @@
 import numpy as np
 
-from si.data.dataset import Dataset
-from si.metrics.mse import mse
+from data.dataset import Dataset
+from metrics.mse import mse
 
 
 class RidgeRegressionLeastSquares:

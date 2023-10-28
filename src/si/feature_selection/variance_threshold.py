@@ -1,9 +1,6 @@
 import numpy as np
 import os
 import sys
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PARENT_DIR = os.path.dirname(SCRIPT_DIR)
-sys.path.append(PARENT_DIR)
 
 from data.dataset import Dataset
 

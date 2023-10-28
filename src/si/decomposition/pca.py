@@ -1,14 +1,7 @@
 import numpy as np
-import os
-import sys
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PARENT_DIR = os.path.dirname(SCRIPT_DIR)
-PARENT_DIR2 = os.path.dirname(PARENT_DIR)
-sys.path.append(PARENT_DIR2)
-# print(sys.path)
 
-from si.data.dataset import Dataset
-from si.statistics.f_classification import f_classification
+from data.dataset import Dataset
+from statistics.f_classification import f_classification
 # from io.csv_file import read_csv
 
 #exercise 5.1

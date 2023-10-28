@@ -1,7 +1,7 @@
 import numpy as np
 
-from si.data.dataset import Dataset
-from si.metrics.mse import mse
+from data.dataset import Dataset
+from metrics.mse import mse
 
 
 class RidgeRegression:
@@ -171,7 +171,7 @@ class RidgeRegression:
 
 if __name__ == '__main__':
     # import dataset
-    from si.data.dataset import Dataset
+    from data.dataset import Dataset
 
     # make a linear dataset
     X = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])

@@ -1,12 +1,4 @@
-import sys,os
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PARENT_DIR = os.path.dirname(SCRIPT_DIR)
-sys.path.append(PARENT_DIR)
-# sys.path.append(SCRIPT_DIR)
-
-
 from typing import Callable, Union
-
 import numpy as np
 
 from data.dataset import Dataset
@@ -86,7 +78,7 @@ class KNNClassifier:
 
         # get the k nearest neighbors
         k_nearest_neighbors = np.argsort(distances)[:self.k]
-        
+
         # get the labels of the k nearest neighbors
         k_nearest_neighbors_labels = self.dataset.y[k_nearest_neighbors]
 
@@ -132,7 +124,7 @@ if __name__ == '__main__':
 
     # import dataset
     from data.dataset import Dataset
-    from si.model_selection.split import train_test_split
+    from model_selection.split import train_test_split
 
     # load and split the dataset
     dataset_ = Dataset.from_random(600, 100, 2)

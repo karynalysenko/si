@@ -1,8 +1,8 @@
 import numpy as np
 
-from si.data.dataset import Dataset
-from si.metrics.accuracy import accuracy
-from si.statistics.sigmoid_function import sigmoid_function
+from data.dataset import Dataset
+from metrics.accuracy import accuracy
+from statistics.sigmoid_function import sigmoid_function
 
 
 class LogisticRegression:
@@ -180,8 +180,8 @@ class LogisticRegression:
 
 if __name__ == '__main__':
     # import dataset
-    from si.data.dataset import Dataset
-    from si.model_selection.split import train_test_split
+    from data.dataset import Dataset
+    from model_selection.split import train_test_split
 
     # load and split the dataset
     dataset_ = Dataset.from_random(600, 100, 2)
