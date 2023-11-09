@@ -2,7 +2,7 @@ import numpy as np
 
 from data.dataset import Dataset
 from statistics.f_classification import f_classification
-# from io.csv_file import read_csv
+# from io_.csv_file import read_csv
 
 #exercise 5.1
 class PCA:

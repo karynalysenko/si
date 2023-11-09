@@ -3,10 +3,10 @@ import sys
 import numpy as np
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PARENT_DIR = os.path.dirname(SCRIPT_DIR)
-sys.path.append(PARENT_DIR)
+# sys.path.append(PARENT_DIR)
 # print(PARENT_DIR)
 
-from src.io.csv_file import read_csv
+from src.io_.csv_file import read_csv
 
 filename= f'{PARENT_DIR}/datasets/iris/iris.csv'
 # filename= f'{PARENT_DIR}/datasets/iris/iris_missing_data.csv'
