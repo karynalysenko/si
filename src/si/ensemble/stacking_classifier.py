@@ -42,10 +42,10 @@ class StackingClassifier:
         for test_model in self.models:
             test_model.fit(dataset)
             predictions.append(test_model.predict(dataset))
-        stacked_X = np.column_stack(predictions) #alinha cada resultado de modelo em 1 coluna (aqui serão 3 colunas pois há 3 modelos para testar no exercicio)
+        stacked_y = np.column_stack(predictions) #alinha cada resultado de modelo em 1 coluna (aqui serão 3 colunas pois há 3 modelos para testar no exercicio)
         
-        self.final_model.fit(Dataset(dataset.X, stacked_X))
-        # print(self.final_model.fit(stacked_X))
+        self.final_model.fit(Dataset(dataset.X, stacked_y))
+        # print(self.final_model.fit(stacked_y))
         return self
     
     def predict(self, dataset: Dataset) -> np.ndarray:
@@ -63,9 +63,9 @@ class StackingClassifier:
             The predicted values.
         """
         base_predictions = [model.predict(dataset) for model in self.models]
-        stacked_X = np.column_stack(base_predictions)
+        stacked_y = np.column_stack(base_predictions)
 
-        final_predictions = self.final_model.predict(Dataset(dataset.X, stacked_X))
+        final_predictions = self.final_model.predict(Dataset(dataset.X, stacked_y))
         # print(final_predictions, 'final_predictions')
         
         return final_predictions
