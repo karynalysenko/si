@@ -106,7 +106,7 @@ if __name__ == '__main__':
     #exercise 7.3
     from data.dataset import Dataset
     from model_selection.split import train_test_split
-    from src.io.csv_file import read_csv
+    from src.io_.csv_file import read_csv
 
     filename= '/home/karyna/Documents/SIB/si/datasets/cpu/cpu.csv'
 

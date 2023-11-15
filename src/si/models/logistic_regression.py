@@ -30,7 +30,6 @@ class LogisticRegression:
     def __init__(self, l2_penalty: float = 1, alpha: float = 0.001, max_iter: int = 1000,
                  patience: int = 5, scale: bool = True):
         """
-
         Parameters
         ----------
         l2_penalty: float
