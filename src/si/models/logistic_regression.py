@@ -206,7 +206,7 @@ if __name__ == '__main__':
     plt.show()
 
     #aula 5 ########################################################
-    from src.io.csv_file import read_csv
+    from src.io_.csv_file import read_csv
     from model_selection.split import train_test_split
 
     filename= '/home/karyna/Documents/SIB/si/datasets/breast_bin/breast-bin.csv'
