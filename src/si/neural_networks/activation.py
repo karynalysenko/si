@@ -1,3 +1,5 @@
+#exercise 13
+
 from abc import abstractmethod
 from typing import Union
 
@@ -178,3 +180,75 @@ class ReLUActivation(ActivationLayer):
             The derivative of the activation function.
         """
         return np.where(input > 0, 1, 0)
+
+class TanhActivation(ActivationLayer):
+
+    def activation_function(self, input: np.ndarray):
+        """
+        Sigmoid activation function.
+
+        Parameters
+        ----------
+        input: numpy.ndarray
+            The input to the layer.
+
+        Returns
+        -------
+        numpy.ndarray
+            The output of the layer.
+        """
+        return (np.exp(input)-np.exp(-input))/np.exp(input) + np.exp(-input)
+
+    def derivative(self, input: np.ndarray):
+        """
+        Derivative of the sigmoid activation function.
+
+        Parameters
+        ----------
+        input: numpy.ndarray
+            The input to the layer.
+
+        Returns
+        -------
+        numpy.ndarray
+            The derivative of the activation function.
+        """
+        return 1-(self.activation_function(input)**2)
+    
+class SoftmaxActivation(ActivationLayer):
+    def activation_function(self, input: np.ndarray):
+        """
+        Sigmoid activation function.
+
+        Parameters
+        ----------
+        input: numpy.ndarray
+            The input to the layer.
+
+        Returns
+        -------
+        numpy.ndarray
+            The output of the layer.
+        """
+        shifted_input = input - np.max(input, axis=0, keepdims=True)
+        exp_input = np.exp(shifted_input)
+        softmax_output = exp_input / np.sum(exp_input, axis=0, keepdims=True)
+        
+        return softmax_output
+
+    def derivative(self, input: np.ndarray):
+        """
+        Derivative of the sigmoid activation function.
+
+        Parameters
+        ----------
+        input: numpy.ndarray
+            The input to the layer.
+
+        Returns
+        -------
+        numpy.ndarray
+            The derivative of the activation function.
+        """
+        return self.activation_function(input)*(1-self.activation_function(input))
+    
