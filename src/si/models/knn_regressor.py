@@ -57,14 +57,13 @@ class KNNRegressor:
         label: str or int
             The closest label
         """
-        # compute the distance between the sample and the dataset
-        distances = self.distance(sample, self.dataset.X)
 
-        # get the k nearest neighbors
+        distances = self.distance(sample, self.dataset.X) #distance between the sample and the dataset
+
         k_nearest_indices = np.argsort(distances)[:self.k] #busca os indices
-        k_nearest_values = [self.dataset.y[i] for i in k_nearest_indices]
+        k_nearest_values = [self.dataset.y[i] for i in k_nearest_indices] # get the k nearest neighbors
 
-        print(k_nearest_values,'aqui')
+        # print(k_nearest_values,'aqui')
         return np.mean(k_nearest_values)
 
 

@@ -131,7 +131,7 @@ if __name__ == '__main__':
     model = RandomForestClassifier(min_sample_split=3, max_depth=3, mode='gini', seed = 10)
     model.fit(train)
     # for i in model.fit(train).trees:
-    #     print(i[1].print_tree())
+    #     print(i[1].print_tree()) 
     # print(model.predict(test))
     print(model.score(test))
 

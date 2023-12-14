@@ -7,7 +7,22 @@ from statistics.f_classification import f_classification
 # from io_.csv_file import read_csv
 
 class SelectPercentile:
+    """
+    Select features according to a percentile of the highest scores.
 
+    Parameters
+    ----------
+    percentile: int
+        percentile for selecting features
+    score_func:
+        variance analysis function (f_classification by default)
+    Attributes
+    ----------
+        F 
+           the F value for each feature estimated by the score_func
+        p
+            the p value for each feature estimated by the score_func
+    """
     def __init__(self, percentile: int, score_func=f_classification):
         self.score_func = score_func
         self.percentile = percentile

@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def euclidean_distance(x: np.ndarray, y: np.ndarray) -> np.ndarray:
+def euclidean_distance(x: np.ndarray, y: np.ndarray) -> np.ndarray: #calcula distancia (tipo linha reta)
     """
     It computes the euclidean distance of a point (x) to a set of points y.
         distance_x_y1 = sqrt((x1 - y11)^2 + (x2 - y12)^2 + ... + (xn - y1n)^2)

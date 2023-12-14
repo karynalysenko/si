@@ -22,7 +22,7 @@ class RidgeRegressionLeastSquares:
 
         # attributes
         self.theta = None
-        self.theta_zero = None
+        self.theta_zero = None #y intercept
         self.mean = None
         self.std = None
 
@@ -58,7 +58,7 @@ class RidgeRegressionLeastSquares:
         A = np.linalg.inv(transposed_X.dot(X) + penalty_matrix)
         b = transposed_X.dot(y)
         thetas = A.dot(b)
-        self.theta_zero=thetas[0] #indicaçõe sdo slide no passo 5 
+        self.theta_zero=thetas[0] #indicaçõe do slide no passo 5 
         self.theta=thetas[1:]
         return self
 
