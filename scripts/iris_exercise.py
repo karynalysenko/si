@@ -107,59 +107,87 @@ from src.si.models import ridge_regression_least_squares
 ##9
 from src.si.models import random_forest_classifier
 
+#10
+from src.si.ensemble import stacking_classifier
 
-# #16
-# from si.data.dataset import Dataset
-# from si.neural_networks.layers import Layer, DenseLayer, Dropout
-# from si.neural_networks.activation import ReLUActivation, SigmoidActivation
-# from si.neural_networks.losses import  BinaryCrossEntropy
-# from si.metrics.accuracy import accuracy
-# from io_.csv_file import read_csv
-# from src.si.model_selection.split import train_test_split
-# from src.si.neural_networks.neural_network import NeuralNetwork
-# from src.si.neural_networks.optimizers import SGD
+#11 - aula 6/7
+from src.si.model_selection import randomized_search
 
-# np.random.seed(42)
-# X = np.random.randn(200, 32)  # 160 amostras, 32 características
-# y = np.random.randint(2, size=(200, 1))
-# dataset = Dataset(X=X,y=y)
+#12
+from src.si.neural_networks import layers
+#Droptout class
 
-# train, test = train_test_split(dataset, test_size=0.3, random_state=42)
+#13
+from src.si.neural_networks import activation
+#TanhActivation e Softmax
 
-# # network
-# net = NeuralNetwork(epochs=100, batch_size=16, optimizer=SGD, learning_rate=0.01, verbose=True,
-#                     loss=BinaryCrossEntropy, metric=accuracy)
-# n_features = dataset.X.shape[1]
-# net.add(DenseLayer(16, (n_features,)))
-# net.add(ReLUActivation())
-# net.add(DenseLayer(8))
-# net.add(ReLUActivation())
-# net.add(DenseLayer(1))
-# net.add(SigmoidActivation())
-# net.add(Dropout(0.5))
-# # train
-# net.fit(train)
+#14
+from src.si.neural_networks import losses
+#CategoricalCrossEntropy
 
-# # test
-# out = net.predict(test)
-# print(net.score(test))
+#15
+from src.si.neural_networks import optimizers
+#class Adam
 
-# from keras.models import Sequential
-# from keras.layers import Dense, Activation
-# from keras.optimizers import SGD
-# from sklearn.model_selection import train_test_split
 
-# model_keras = Sequential()
-# model_keras.add(Dense(16, input_shape=(n_features,), activation='relu'))
-# model_keras.add(Dense(8, activation='relu'))
-# model_keras.add(Dense(1, activation='sigmoid'))
+# 16
+from si.data.dataset import Dataset
+from si.neural_networks.layers import Layer, DenseLayer, Dropout
+from si.neural_networks.activation import ReLUActivation, SigmoidActivation
+from si.neural_networks.losses import  BinaryCrossEntropy
+from si.metrics.accuracy import accuracy
+from io_.csv_file import read_csv
+from src.si.model_selection.split import train_test_split
+from src.si.neural_networks.neural_network import NeuralNetwork
+from src.si.neural_networks.optimizers import SGD
 
-# model_keras.compile(optimizer=SGD(learning_rate=0.01), loss='binary_crossentropy', metrics=['accuracy'])
+np.random.seed(42)
+X = np.random.randn(200, 32)  # 160 amostras, 32 características
+y = np.random.randint(2, size=(200, 1))
+dataset = Dataset(X=X,y=y)
 
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+train, test = train_test_split(dataset, test_size=0.3, random_state=42)
 
-# # Treinar o modelo
-# history = model_keras.fit(X_train, y_train, epochs=100, batch_size=16, verbose=1, validation_data=(X_test, y_test))
+# network
+net = NeuralNetwork(epochs=100, batch_size=16, optimizer=SGD, learning_rate=0.01, verbose=True,
+                    loss=BinaryCrossEntropy, metric=accuracy)
+n_features = dataset.X.shape[1]
+net.add(DenseLayer(16, (n_features,)))
+net.add(ReLUActivation())
+net.add(DenseLayer(8))
+net.add(ReLUActivation())
+net.add(DenseLayer(1))
+net.add(SigmoidActivation())
+net.add(Dropout(0.5))
+# train
+net.fit(train)
 
-# test_loss, test_accuracy = model_keras.evaluate(X_test, y_test)
-# print(f'\nTest Loss: {test_loss:.4f}, Test Accuracy: {test_accuracy:.4f}')
+# test
+out = net.predict(test)
+print(net.score(test))
+
+from keras.models import Sequential
+from keras.layers import Dense, Activation
+from keras.optimizers import SGD
+from sklearn.model_selection import train_test_split
+
+model_keras = Sequential()
+model_keras.add(Dense(16, input_shape=(n_features,), activation='relu'))
+model_keras.add(Dense(8, activation='relu'))
+model_keras.add(Dense(1, activation='sigmoid'))
+
+model_keras.compile(optimizer=SGD(learning_rate=0.01), loss='binary_crossentropy', metrics=['accuracy'])
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Treinar o modelo
+history = model_keras.fit(X_train, y_train, epochs=100, batch_size=16, verbose=1, validation_data=(X_test, y_test))
+
+test_loss, test_accuracy = model_keras.evaluate(X_test, y_test)
+print(f'\nTest Loss: {test_loss:.4f}, Test Accuracy: {test_accuracy:.4f}')
+
+#17
+from src.si.encoding import one_hot_encoder
+
+#18
+# cnn_exercise.ipynb

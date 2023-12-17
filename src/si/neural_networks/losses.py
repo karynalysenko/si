@@ -155,7 +155,7 @@ class CategoricalCrossEntropy(LossFunction):
             The loss value.
         """
         # Avoid division by zero
-        p = np.clip(y_pred, 1e-15, 1 - 1e-15)
+        p = np.clip(y_pred, 1e-15, 1 - 1e-15) #clip(array, a,b) limita o array, abaixo de a passa a ser a, acima de b passa a ser b
         return -np.sum(y_true * np.log(p))
 
     def derivative(self, y_true: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
